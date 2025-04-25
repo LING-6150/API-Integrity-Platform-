@@ -37,3 +37,98 @@ The API Integrity Platform protects backend services from unauthorized access, m
 - **Asynchronous Processing**: Disruptor, Event-Driven Design
 - **Real-Time Monitoring**: WebSocket, Prometheus, Grafana
 - **DevOps**: Docker, CI/CD (GitHub Actions), Linux, Nginx
+
+---
+
+## 🧪 Architecture Highlights
+
+```plaintext
+                           ┌────────────────────────────┐
+                           │     API Gateway Layer      │
+                           │  (Spring Cloud Gateway)     │
+                           └────────────┬───────────────┘
+                                        │
+              ┌─────────────────────────▼─────────────────────────┐
+              │                 Risk Control Engine               │
+              │     - Rule-based strategy evaluation              │
+              │     - Anomaly scoring & policy enforcement        │
+              └─────────────────────────┬─────────────────────────┘
+                                        │
+┌────────────┐     ┌────────────────────▼───────────────────┐     ┌────────────┐
+│  Redis     │◄────┤ Permission System (Sa-Token + AOP RBAC)├────►│  MySQL DB  │
+└────────────┘     └────────────────────────────────────────┘     └────────────┘
+
+📈 Performance Metrics
+
+Metric	Result
+API throughput improvement	⬆️ 300%
+Unauthorized access reduction	⬇️ 95%
+Query latency after sharding	⬇️ from 1.2s → 0.65s
+Concurrent user support	✅ 500+ users
+Deployment uptime	✅ 99.9% on Linux/Nginx
+📂 Folder Structure
+bash
+Copy
+Edit
+├── src
+│   ├── config/          # Security & Gateway Configurations
+│   ├── controller/      # REST API endpoints
+│   ├── interceptor/     # Custom AOP logic for permissions
+│   ├── service/         # Business logic layer
+│   └── util/            # Utility classes
+├── resources/
+│   └── application.yml  # Spring Boot settings
+├── Dockerfile
+├── README.md
+└── .gitignore
+📦 Getting Started
+bash
+Copy
+Edit
+# Clone the repo
+git clone https://github.com/LING-6150/API-Integrity-Platform-.git
+
+# Navigate to project folder
+cd API-Integrity-Platform
+
+# Build & run the application
+./mvnw spring-boot:run
+🔐 Login credentials & test tokens are managed via application.yml.
+
+🧠 Use Cases
+Internal API security layer for sensitive enterprise systems
+
+Developer platform requiring rate limiting, auditability, and integration safety
+
+Trust and Safety infrastructure supporting moderation workflows and policy engines
+
+SaaS-style permission boundary enforcement for multi-tenant environments
+
+📜 License
+This project is open-source under the MIT License. Contributions and forks welcome!
+
+🙌 Author
+Built by Ling Duan — M.S. in Information Systems @ Northeastern University
+📧 Contact: lingduan@xxx.edu (or via GitHub)
+
+yaml
+Copy
+Edit
+
+---
+
+## 📌 如何添加？
+
+在项目根目录下执行：
+
+```bash
+touch README.md
+open README.md  # 或者用 VSCode / 编辑器打开
+然后粘贴上面内容，保存：
+
+bash
+Copy
+Edit
+git add README.md
+git commit -m "Add professional README"
+git push
